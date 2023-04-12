@@ -1,0 +1,53 @@
+{
+  "name": "nuxt-throttle-module",
+  "version": "1.0.0",
+  "description": "This module is designed to limit the number of requests made to the server from a single IP address and and the total number of participants",
+  "repository": "s00d/nuxt-throttle-module",
+  "keywords": [
+    "nuxt",
+    "throttle",
+    "module",
+    "nuxt2",
+    "nuxt3"
+  ],
+  "license": "MIT",
+  "type": "module",
+  "exports": {
+    ".": {
+      "types": "./dist/types.d.ts",
+      "import": "./dist/module.mjs",
+      "require": "./dist/module.cjs"
+    }
+  },
+  "main": "./dist/module.cjs",
+  "types": "./dist/types.d.ts",
+  "files": [
+    "dist"
+  ],
+  "scripts": {
+    "prepack": "nuxt-module-build",
+    "dev": "nuxi dev playground",
+    "dev:2": "cd playground2 && npm run dev",
+    "dev:build": "nuxi build playground",
+    "dev:prepare": "nuxt-module-build --stub && nuxi prepare playground",
+    "release": "npm run lint && npm run test && npm run prepack && changelogen --release && npm publish && git push --follow-tags",
+    "lint": "eslint .",
+    "test": "vitest run",
+    "test:watch": "vitest watch"
+  },
+  "dependencies": {
+    "@nuxt/kit": "<=3.2.3",
+    "ioredis": "^5.3.1"
+  },
+  "devDependencies": {
+    "@nuxt/eslint-config": "^0.1.1",
+    "@nuxt/module-builder": "^0.2.1",
+    "@nuxt/schema": "<=3.2.3",
+    "@nuxt/test-utils": "^3.3.3",
+    "@nuxt/types": "^2.16.3",
+    "changelogen": "^0.5.2",
+    "eslint": "^8.37.0",
+    "nuxt": "^3.3.3",
+    "vitest": "^0.29.8"
+  }
+}
